@@ -37,7 +37,7 @@ O projeto utiliza um arquivo de configuração `config.cfg` para definir parâme
 SERVER_IP = 0.0.0.0
 PORT = 8080
 MAX_FILE_SIZE = 1024  # Tamanho máximo do arquivo em bytes
-FILE_PREFIX = data
+FILE_PREFIX = prefixo
 ```
 
 ### Entregáveis
