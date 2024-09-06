@@ -66,3 +66,17 @@ Aqui estão os entregáveis que foram atingidos na conclusão do desafio:
       
 - [x] **Dificuldades enfrentadas**: Durante o desenvolvimento, a principal dificuldade foi quebrar o arquivo de acordo com o limite maximo estabelecido no arquivo de configuração, gerando corretamente as partes.
 
+### Screenshots
+
+![image](https://github.com/user-attachments/assets/9b70e4a2-9e86-49c6-8f36-7b56ded3a902)
+
+![image](https://github.com/user-attachments/assets/9289569d-4c24-4f5d-96a6-ce8f2d9cfc05)
+
+![image](https://github.com/user-attachments/assets/5b99a05f-34f6-4608-8fa0-a93669dd782f)
+
+![image](https://github.com/user-attachments/assets/6c9bc296-425e-4e17-8096-c1fc0704e98e)
+
+![image](https://github.com/user-attachments/assets/17d8537d-68fb-4679-a0ff-7bcf4653daa4)
+
+
+
