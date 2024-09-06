@@ -34,7 +34,7 @@ O projeto utiliza um arquivo de configuração `config.cfg` para definir parâme
 
 ```ini
 [DEFAULT]
-SERVER_IP = 127.0.0.1
+SERVER_IP = 0.0.0.0
 PORT = 8080
 MAX_FILE_SIZE = 1024  # Tamanho máximo do arquivo em bytes
 FILE_PREFIX = data
