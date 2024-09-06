@@ -7,15 +7,12 @@ def load_config():
     config = configparser.ConfigParser()
     config.read('config.cfg')
 
-    port_from_cfg = config['DEFAULT']['PORT']
-    max_file_size_from_cfg = config['DEFAULT']['MAX_FILE_SIZE']
-    file_prefix_from_cfg = config['DEFAULT']['FILE_PREFIX']
+    server_ip = config['DEFAULT']['SERVER_IP']
+    server_port = int(config['DEFAULT']['PORT'])
+    max_file_size = int(config['DEFAULT']['MAX_FILE_SIZE'])
+    file_prefix = config['DEFAULT']['FILE_PREFIX']
 
-    server_port = int(os.getenv('SERVER_PORT', port_from_cfg))
-    max_file_size = int(os.getenv('MAX_FILE_SIZE', max_file_size_from_cfg))
-    file_prefix = os.getenv('FILE_PREFIX', file_prefix_from_cfg)
-
-    return server_port, max_file_size, file_prefix
+    return server_ip, server_port, max_file_size, file_prefix
 
 def save_data(data, prefix, max_size, current_file, part_number, timestamp, output_dir):
     current_file = os.path.join(output_dir, f"{prefix}_{timestamp}_parte_{part_number}.bin")
@@ -43,12 +40,12 @@ def save_data(data, prefix, max_size, current_file, part_number, timestamp, outp
 
 def start_server():
     # Carrega os valores de configuração
-    server_port, max_size, prefix = load_config()
+    server_ip, server_port, max_size, prefix = load_config()
 
     part_number = 1
     timestamp = time.strftime('%Y%m%d%H%M%S')
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind(('0.0.0.0', server_port))
+    server_socket.bind((server_ip, server_port))
     server_socket.listen(5)
     
     while True:
@@ -58,7 +55,7 @@ def start_server():
             if not data:
                 break
             # Chama a funcao para salvar os dados e garantir que o arquivo nao ultrapasse o tamanho maximo
-            part_number = save_data(data, prefix, max_size, f"{prefix}_{timestamp}.bin", part_number, timestamp)
+            part_number = save_data(data, prefix, max_size, f"{prefix}_{timestamp}.bin", part_number, timestamp, '.')
 
         conn.close()
 
